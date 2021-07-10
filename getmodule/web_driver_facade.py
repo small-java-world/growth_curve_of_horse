@@ -13,6 +13,7 @@ class WebDriverFacade:
     @staticmethod
     def quit() -> None:
         WebDriverFacade.driver.quit()
+        WebDriverFacade.driver = None
 
     @staticmethod
     def get(url:str) -> None:

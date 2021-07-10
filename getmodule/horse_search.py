@@ -1,3 +1,4 @@
+from selenium.common.exceptions import NoSuchElementException
 import chromedriver_binary
 import time
 from typing import Counter, Dict, Tuple, List
@@ -35,12 +36,16 @@ class HorseSearchService:
         while(current_page_no < page):
             time.sleep(1)
 
+            print('current_page_no={} page={}'.format(current_page_no, page))
+              
             # 「次」のリンクをクリック
             WebDriverFacade.click_by_link_text("次")
+
             # pagerのテキストを取得し現在表示しているページ番号に反映
             pager_text = WebDriverFacade.get_text(PAGER_CSS_SELECTOR)
             current_page_no = GetListAnalyzer.get_page_no(pager_text)
         
+            print('set current_page_no={}'.format(current_page_no))
         # 表示しているページのソースを取得
         html = WebDriverFacade.get_page_source()
 

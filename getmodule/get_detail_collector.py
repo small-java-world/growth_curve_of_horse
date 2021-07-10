@@ -29,8 +29,12 @@ class GetDetailCollector:
         for horse_id, item in horse_base.iterrows():
             if(not horse_id):
                 break
+                
+            print('get_get_detail horse_id={}'.format(horse_id))
 
             try:
+                time.sleep(1)
+
                 # horse_idに対応する競走馬の競走戦績のtableデータを取得
                 race_results = pd.read_html('https://db.netkeiba.com/horse/{}'.format(
                     horse_id), attrs={'class': 'db_h_race_results nk_tb_common'})[0]
@@ -43,6 +47,8 @@ class GetDetailCollector:
                 race_results.to_csv(
                     detail_csv_path, index=False, quoting=csv.QUOTE_ALL)
                     
-                time.sleep(1)
             except ValueError as e:
+                print(e)
+            # 競走成績が存在しない
+            except ImportError as e:
                 print(e)

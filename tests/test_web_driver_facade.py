@@ -9,9 +9,14 @@ def test_init_driver(mocker):
     webdriver_mock = mocker.Mock()
     init_driver_mock = mocker.patch.object(webdriver, 'Chrome')
     init_driver_mock.return_value = webdriver_mock
-   
+
+    # テスト対象の処理 WebDriverFacade.init_driver()を呼び出し
     WebDriverFacade.init_driver()
+
+    # WebDriverFacade.driverにwebdriver_mockがセットされていること
     assert WebDriverFacade.driver == webdriver_mock
+
+    # init_driver_mockが一回だけ呼び出されていること
     assert init_driver_mock.call_count == 1
 
 def test_quit(mocker):
@@ -20,11 +25,14 @@ def test_quit(mocker):
 
     quit_mock = mocker.patch.object(webdriver_mock, 'quit')
    
+    # テスト対象の処理 WebDriverFacade.quit()を呼び出し
     WebDriverFacade.quit()
     
+    # quit_mockが一回だけ呼び出されていること
     assert quit_mock.call_count == 1
 
 def test_get(mocker):
+    # WebDriverFacade.driverにモックをセット    
     webdriver_mock = mocker.Mock()
     WebDriverFacade.driver = webdriver_mock
 
@@ -32,8 +40,11 @@ def test_get(mocker):
     get_mock.return_value = True
    
     dummy_url = 'dummy_url'
+    
+    # テスト対象の処理 WebDriverFacade.get(dummy_url)を呼び出し
     WebDriverFacade.get(dummy_url)
 
+    # get_mockが引数：dummy_urlで一回だけ呼び出されていること
     get_mock.assert_called_once_with(dummy_url)
 
 def test_get_text(mocker):
@@ -42,18 +53,24 @@ def test_get_text(mocker):
 
     text_mock = mocker.Mock()
     
+    # WebDriverFacade.driver.find_element_by_css_selectorの結果にtext_mockをセット
     find_element_by_css_selector_mock = mocker.patch.object(webdriver_mock, 'find_element_by_css_selector')
     find_element_by_css_selector_mock.return_value = text_mock
 
     dummy_css_selector = 'dummy_css_selector'
     dummy_text = 'dummy_text'
 
+    # text_mock.get_attributeをモック化
     get_attribute_mock = mocker.patch.object(text_mock, 'get_attribute')
     get_attribute_mock.return_value = dummy_text
 
+    # テスト対象の処理 WebDriverFacade.get_text(dummy_css_selector)を呼び出し結果がdummy_textと一致すること
     assert WebDriverFacade.get_text(dummy_css_selector) == dummy_text
 
+    # find_element_by_css_selector_mockがdummy_css_selectorを引数として一回呼び出されていることを検証
     find_element_by_css_selector_mock.assert_called_once_with(dummy_css_selector)
+
+    # get_attribute_mockが'textContent'を引数として一回呼び出されていることを検証
     get_attribute_mock.assert_called_once_with('textContent')
 
 def test_send_keys(mocker):

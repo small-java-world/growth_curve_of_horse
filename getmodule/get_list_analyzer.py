@@ -36,7 +36,8 @@ class GetListAnalyzer:
     # 533件中1～20件目 形式の文字列から現在のページを取得
     @staticmethod
     def get_page_no(pager:str) -> int:
-        search_result = re.search(r'\d{1,3}～', pager)
+        # 件中の後の数値はフォーマットされない
+        search_result = re.search(r'\d{1,8}～', pager)
         result = search_result.group(0).replace('～', '')
         
         try:

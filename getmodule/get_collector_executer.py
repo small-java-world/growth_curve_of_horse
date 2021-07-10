@@ -49,5 +49,6 @@ class GetCollectorExecuter:
         finally:
             # CsvWriterをクローズ
             csv_writer.close_file()
-
+            
+        print('GetCollectorExecuter get_get_dict end')
        

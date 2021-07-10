@@ -27,3 +27,6 @@ class GetCollector:
                 return HorseSearchService.get_horse_ids(self.current_page)
             finally:
                 self.current_page += 1
+            
+        print('GetCollector get_get_dict end')
+       

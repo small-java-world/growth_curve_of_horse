@@ -15,7 +15,7 @@ def test_create_sire_dir(mocker):
     makedirs_mock = mocker.patch.object(os, 'makedirs')
 
     FilePathUtil.create_sire_dir(SIRE_NAME)
-
+    
     makedirs_mock.assert_called_once_with('datas/sire_name', exist_ok=True)
 
 

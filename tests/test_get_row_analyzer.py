@@ -1,14 +1,4 @@
-import pytest
-import csv
-import os
-from typing import Counter, Dict, Tuple, List
-from getmodule.horse_search import HorseSearchService
-from collections import namedtuple
-import pandas as pd
-from getmodule.file_path_util import FilePathUtil
-from getmodule.csv_util import CsvReader
 from getmodule.get_row_analyzer import GetRowAnalyzer
-from unittest.mock import call
 from bs4.element import Tag
 from bs4.element import PageElement
 from unittest.mock import MagicMock, PropertyMock
