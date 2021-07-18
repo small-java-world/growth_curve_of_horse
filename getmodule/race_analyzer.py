@@ -1,9 +1,5 @@
-import chromedriver_binary
-import time
 import os
-from typing import Counter, Dict, Tuple, List
-from numpy import str0
-from selenium import webdriver
+from typing import List
 from selenium.webdriver.support.ui import WebDriverWait
 from getmodule.web_driver_facade import WebDriverFacade
 from getmodule.file_path_util import FilePathUtil

@@ -1,4 +1,3 @@
-import pytest
 import os
 from getmodule.get_collector_executer import GetCollectorExecuter
 from getmodule.get_collector import GetCollector
@@ -7,7 +6,6 @@ from getmodule.get_detail_collector import GetDetailCollector
 
 from getmodule.csv_util import CsvWriter
 from getmodule.file_path_util import FilePathUtil
-from typing import Dict, List
 from unittest.mock import call
 
 def test_get_get_dict(mocker):

@@ -1,8 +1,8 @@
 import csv
+import pandas as pd
 from typing import List
 from pandas.core.frame import DataFrame
 from io import TextIOWrapper
-import pandas as pd
 
 class CsvWriter:
     def __init__(self, file_name:str):
@@ -28,7 +28,3 @@ class CsvReader:
     @staticmethod
     def read_horse_base(csv_path:str) -> DataFrame:
         return pd.read_csv(csv_path, index_col=0, quoting=csv.QUOTE_ALL)
-
-
-
-       

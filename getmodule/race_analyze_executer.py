@@ -1,16 +1,9 @@
-import csv
-import os
-import time
-from typing import Counter, Dict, Tuple, List
+from typing import List
 from getmodule.get_collector import GetCollector
 from getmodule.csv_util import CsvWriter
 from getmodule.race_analyzer import RaceAnalyzer
 from getmodule.file_path_util import FilePathUtil
 from getmodule.csv_util import CsvReader
-
-import pandas as pd
-from pandas.core.frame import DataFrame
-from pandas.core.frame import Series
 
 
 class RaceAnalyzeExecuter:

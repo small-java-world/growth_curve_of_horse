@@ -1,6 +1,4 @@
-import pytest
 import csv
-import os
 from typing import Counter, Dict, Tuple, List
 from getmodule.horse_search import HorseSearchService
 from collections import namedtuple
@@ -65,6 +63,4 @@ def test_get_get_dict(mocker):
 
     to_csv_mock1.assert_called_once_with('detail_csv_path_0', index=False, quoting=csv.QUOTE_ALL)
     to_csv_mock2.assert_called_once_with('detail_csv_path_1', index=False, quoting=csv.QUOTE_ALL)
-
-
     

@@ -1,8 +1,5 @@
 import csv
 import time
-import os
-from typing import Counter, Dict, Tuple, List
-from getmodule.horse_search import HorseSearchService
 from collections import namedtuple
 import pandas as pd
 from getmodule.file_path_util import FilePathUtil
@@ -12,10 +9,6 @@ class GetDetailCollector:
     def __init__(self, sire_name):
         # 対象の種牡馬名
         self.sire_name = sire_name
-        # 対象の種牡馬の産駒一覧の総ページ数
-        self.total_page = -1
-        # 現在の処理対象ページ
-        self.current_page = 0
 
     def get_get_detail(self) -> None:
         # 対象種牡馬の産駒一覧(horse_base.csv)のパスを取得

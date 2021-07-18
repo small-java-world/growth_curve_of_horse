@@ -1,9 +1,7 @@
 import pytest
-import time
 from getmodule.web_driver_facade import WebDriverFacade
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 
 def test_init_driver(mocker):
     webdriver_mock = mocker.Mock()
@@ -64,7 +62,7 @@ def test_get_text(mocker):
     get_attribute_mock = mocker.patch.object(text_mock, 'get_attribute')
     get_attribute_mock.return_value = dummy_text
 
-    # テスト対象の処理 WebDriverFacade.get_text(dummy_css_selector)を呼び出し結果がdummy_textと一致すること
+    # テスト対象の処理 WebDriverFacade# テスト対象の処理 WebDriverFacade.get_text(dummy_css_selector)を呼び出し結果がdummy_textと一致すること
     assert WebDriverFacade.get_text(dummy_css_selector) == dummy_text
 
     # find_element_by_css_selector_mockがdummy_css_selectorを引数として一回呼び出されていることを検証
@@ -88,6 +86,7 @@ def test_send_keys(mocker):
     dummy_css_selector = 'dummy_css_selector'
     dummy_input_value = 'dummy_input_value'
 
+    # テスト対象の処理 WebDriverFacade.send_keysを呼び出し
     WebDriverFacade.send_keys(dummy_css_selector, dummy_input_value)
 
     find_element_by_css_selector_mock.assert_called_once_with(dummy_css_selector)

@@ -64,7 +64,8 @@ def test_get_total_page_no(pager: str, expect: int):
 
 @pytest.mark.parametrize("pager, expect", [
     ("1件中1～20件目", 0),
-    ("1,785件中21～20件目", 1)
+    ("1,785件中21～20件目", 1),
+    ("1,785件中1000～1020件目", 50)
 ])
 def test_get_page_no(pager: str, expect: int):
     assert GetListAnalyzer.get_page_no(pager) == expect

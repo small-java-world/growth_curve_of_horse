@@ -1,24 +1,15 @@
-import pytest
-import os
 from typing import Counter, Dict, Tuple, List
 from getmodule.get_collector import GetCollector
 from getmodule.race_analyze_executer import RaceAnalyzeExecuter
 from getmodule.file_path_util import FilePathUtil
-import time
 from pandas.testing import assert_series_equal
 import pandas as pd
-from pandas.core.frame import Series
-
 from getmodule.csv_util import CsvWriter
-
 from getmodule.csv_util import CsvReader
 from pandas.core.frame import DataFrame
 from pandas.core.frame import Series
 from unittest.mock import call
-
-
 from getmodule.race_analyzer import RaceAnalyzer
-
 
 HORSE_ID_TEMPLATE = 'horse_id_{}'
 

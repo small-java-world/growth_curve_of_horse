@@ -1,7 +1,5 @@
-import csv
 import os
 import time
-from typing import Counter, Dict, Tuple, List
 from getmodule.get_collector import GetCollector
 from getmodule.csv_util import CsvWriter
 from getmodule.file_path_util import FilePathUtil
@@ -49,6 +47,4 @@ class GetCollectorExecuter:
         finally:
             # CsvWriterをクローズ
             csv_writer.close_file()
-            
-        print('GetCollectorExecuter get_get_dict end')
        

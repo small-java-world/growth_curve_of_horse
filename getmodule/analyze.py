@@ -1,4 +1,3 @@
-import traceback
 from getmodule.race_analyze_executer import RaceAnalyzeExecuter
 
 def main():

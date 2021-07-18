@@ -1,5 +1,3 @@
-from selenium.common.exceptions import NoSuchElementException
-import chromedriver_binary
 import time
 from typing import Counter, Dict, Tuple, List
 from getmodule.web_driver_facade import WebDriverFacade
@@ -46,6 +44,7 @@ class HorseSearchService:
             current_page_no = GetListAnalyzer.get_page_no(pager_text)
         
             print('set current_page_no={}'.format(current_page_no))
+            
         # 表示しているページのソースを取得
         html = WebDriverFacade.get_page_source()
 
@@ -61,6 +60,4 @@ class HorseSearchService:
         # 検索ボタンをクリック(JavaScript利用)
         WebDriverFacade.click_button_js('#db_search_detail_form > form > div > input:nth-child(1)')
         # pagerのCSSセレクタに対応する要素が出現するまでウエイト
-        WebDriverFacade.wait_until(PAGER_CSS_SELECTOR)
-
-    
+        WebDriverFacade.wait_until(PAGER_CSS_SELECTOR)    
